@@ -1,6 +1,9 @@
 @shopping_list_api_HostAddress = http://localhost:5118
 
-GET {{shopping_list_api_HostAddress}}/weatherforecast/
+GET {{shopping_list_api_HostAddress}}/api/v1/items/
 Accept: application/json
 
 ###
+
+GET {{shopping_list_api_HostAddress}}/api/v1/items/d6089e16-62f7-4131-8ed4-13fbc2e1c85d
+Accept: application/json
