@@ -1,0 +1,6 @@
+﻿services:
+  shopping-list-api:
+    image: shopping-list-api
+    build:
+      context: .
+      dockerfile: shopping-list-api/Dockerfile

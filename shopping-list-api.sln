@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopping-list-api", "shopping-list-api\shopping-list-api.csproj", "{AE07F260-B7C8-45D4-9103-E7CF4AAA457E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FF7D8D76-C1AC-4EDB-B3F2-4D815DF870DE}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE07F260-B7C8-45D4-9103-E7CF4AAA457E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE07F260-B7C8-45D4-9103-E7CF4AAA457E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE07F260-B7C8-45D4-9103-E7CF4AAA457E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE07F260-B7C8-45D4-9103-E7CF4AAA457E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
