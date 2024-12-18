@@ -25,3 +25,4 @@ app.MapGroup("/api/v1")
 
 app.Run();
 
+public partial class Program { }

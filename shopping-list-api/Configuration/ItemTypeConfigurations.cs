@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using shopping_list_api.model;
 
 namespace shopping_list_api.Configuration;
 
-public class BookTypeConfigurations : IEntityTypeConfiguration<ItemModel>
+public class ItemTypeConfigurations : IEntityTypeConfiguration<ItemModel>
 {
     public void Configure(EntityTypeBuilder<ItemModel> builder)
     {

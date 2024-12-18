@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using shopping_list_api.Configuration;
 using shopping_list_api.model;
 
 namespace shopping_list_api.AppContext;

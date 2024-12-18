@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using shopping_list_api.AppContext;
