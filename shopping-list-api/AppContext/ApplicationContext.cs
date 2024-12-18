@@ -4,12 +4,19 @@ using shopping_list_api.model;
 
 namespace shopping_list_api.AppContext;
 
-public class ApplicationContext(DbContextOptions<ApplicationContext> options): DbContext(options)
+public class ApplicationContext : DbContext
 {
+    public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
+    {
+    }
+    
+    public ApplicationContext()
+    {
+    }
 
     private const string DefaultSchema = "itemsapi";
     
-    public DbSet<ItemModel> Items { get; set; }
+    public virtual DbSet<ItemModel> Items { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
