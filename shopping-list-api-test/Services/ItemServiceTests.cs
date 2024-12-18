@@ -118,5 +118,43 @@ namespace shopping_list_tests.Services
             Assert.AreEqual(mockItems.Count, result.Count());
             Assert.AreEqual(mockItems[0].Name, result.First().Name);
         }
+
+        [TestMethod]
+        public async Task GetItemsAsync_ExceptionThrown_ThrowsException()
+        {
+            // Arrange
+            var mockItems = new List<ItemModel>
+            {
+                new ItemModel { Name = "BBB" },
+                new ItemModel { Name = "ZZZ" },
+                new ItemModel { Name = "AAA" },
+            };
+            var data = mockItems.AsQueryable();
+            
+            var mockSet = new Mock<DbSet<ItemModel>>();
+            mockSet.As<IDbAsyncEnumerable<ItemModel>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<ItemModel>(data.GetEnumerator()));
+            
+            mockSet.As<IAsyncEnumerable<ItemModel>>()
+                .Setup(m => m.GetAsyncEnumerator(new CancellationToken()))
+                .Returns(new TestDbAsyncEnumerator<ItemModel>(data.GetEnumerator()));
+
+            mockSet.As<IQueryable<ItemModel>>()
+                .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<ItemModel>(data.Provider));
+
+            mockSet.As<IQueryable<ItemModel>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<ItemModel>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<ItemModel>>().Setup(m => m.GetEnumerator()).Returns(() => data.GetEnumerator());
+            
+            var exceptionMessage = "Database error";
+            _mockContext = new Mock<ApplicationContext>();
+            _mockContext.Setup(c => c.Items).Throws(new Exception(exceptionMessage));
+            _itemService = new ItemService(_mockContext.Object, _mockLogger.Object);
+
+            // Act & Assert
+            await Assert.ThrowsExceptionAsync<Exception>(() => _itemService.GetItemsAsync());
+        }
     }
 }
