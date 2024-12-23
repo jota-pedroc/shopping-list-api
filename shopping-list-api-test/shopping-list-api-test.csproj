@@ -28,4 +28,12 @@
       <ProjectReference Include="..\shopping-list-api\shopping-list-api.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="TestResults\8011b1ef-051f-4b36-bbbd-82c26f05f0b2\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="TestResults\8011b1ef-051f-4b36-bbbd-82c26f05f0b2\coverage.cobertura.xml" />
+    </ItemGroup>
+
 </Project>
